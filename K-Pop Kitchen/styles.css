@@ -1,0 +1,251 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+/* Color Variables */
+:root {
+    --primary-color: #ff1493; /* Hot Pink */
+    --secondary-color: #00ffff; /* Bright Cyan */
+    --background-color: #000000; /* Black */
+    --text-color: #ffffff; /* White */
+    --accent-color: #ffff00; /* Bright Yellow */
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Glitch Animation */
+@keyframes glitch {
+    2%, 64% { transform: translate(2px, 0) skew(0deg); }
+    4%, 60% { transform: translate(-2px, 0) skew(0deg); }
+    62% { transform: translate(0, 0) skew(5deg); }
+}
+
+/* Header */
+header {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: 'K-POP KITCHEN';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255,255,255,0.1);
+    font-size: 200px;
+    z-index: 0;
+    white-space: nowrap;
+}
+
+header h1 {
+    font-size: 4em;
+    position: relative;
+    z-index: 1;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    animation: glitch 3s infinite;
+}
+
+/* Navigation */
+nav {
+    background-color: rgba(255,255,255,0.1);
+    padding: 15px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Featured Sections */
+.featured-section {
+    background-color: rgba(255,255,255,0.05);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+/* Image Gallery */
+.image-gallery {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.image-gallery img {
+    width: 30%;
+    border-radius: 10px;
+    border: 3px solid var(--secondary-color);
+    object-fit: cover;
+}
+
+
+
+/* Call to Action Buttons */
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-color);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: transform 0.3s ease;
+}
+
+
+
+/* Form */
+#reservations form input {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    border: 1px solid var(--primary-color);
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+* Menu Category */
+.menu-category {
+    margin-bottom: 40px;
+}
+
+.menu-category h3 {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.menu-category ul {
+    list-style: none;
+}
+
+.menu-category li {
+    background-color: rgba(255,255,255,0.1);
+    border-left: 4px solid var(--primary-color);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.menu-category li:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+.menu-category h4 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.menu-category p {
+    color: var(--text-color);
+}
+/* Footer */
+footer {
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+}
+
+footer .fab {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.5em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .image-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-gallery img {
+        width: 80%;
+        margin-bottom: 15px;
+    }
+    .menu-category li {
+        padding: 15px;
+    }
+}
